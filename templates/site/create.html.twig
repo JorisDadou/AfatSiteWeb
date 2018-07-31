@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formGalerie 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <h1>Ajouter a la Galerie</h1>
+
+    {{ form_start(formGalerie) }}
+
+    {{ form_row(formGalerie.title, {'attr' : {'placeholder' : "Titre"}}) }}
+    {{ form_row(formGalerie.content, {'attr' : {'placeholder' : "Contenu"}}) }}
+    {{ form_row(formGalerie.image, {'attr' : {'placeholder' : "URL de l'Image"}}) }}
+
+    <button type="submit" class="btn btn-success">
+
+        {% if editMode %}
+            Modifier
+        {% else %}
+            Ajouter a la Galerie
+        {% endif %}
+    </button>
+
+    {{ form_end(formGalerie) }}
+
+{% endblock %}

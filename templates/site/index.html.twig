@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+
+    <section class="galerie">
+        {% for galerie in galerie %}
+            <article>
+                <h2>{{ galerie.title }}</h2>
+                <div class="metadata">Ajoutée le {{ galerie.createdAt | date('d/m/Y') }}
+                    à {{ galerie.createdAt | date('H:i') }} : Peinture
+                </div>
+                <div class="content">
+                    <img src="{{ galerie.image }}" alt="">
+                    {{ galerie.content | raw }}
+                    <a href="{{ path('site_show',{'id': galerie.id}) }}" class="btn btn-primary">Commenter</a>
+                </div>
+
+            </article>
+        {% endfor %}
+
+    </section>
+
+{% endblock %}

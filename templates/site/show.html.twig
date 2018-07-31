@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <article>
+        <h2>{{ galerie.title }}</h2>
+        <div class="metadata">Ajoutée le {{ galerie.createdAt | date('d/m/Y') }} à {{ galerie.createdAt | date('H:i') }}
+            : Peinture
+        </div>
+        <div class="content">
+            <img src="{{ galerie.image }}" alt="">
+            {{ galerie.content | raw }}
+        </div>
+
+    </article>
+
+{% endblock %}
