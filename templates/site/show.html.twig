@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <article>
+        <h2>{{ galerie.title }}</h2>
+        <div class="metadata">Ajoutée le {{ galerie.createdAt | date('d/m/Y') }} à {{ galerie.createdAt | date('H:i') }}
+            dans la Catégorie {{ galerie.category.title }}
+        </div>
+        <div class="content">
+            <img src="{{ galerie.image }}" alt="">
+            {{ galerie.content | raw }}
+        </div>
+
+    </article>
+
+    <section id="commentaires">
+        {% for comment in galerie.comments %}
+            <div class="comment">
+                <div class="row">
+                    <div class="col-3">
+                        {{ comment.author }} (
+                        <small>{{ comment.createdAt | date('d/m/Y à H:i') }}</small>
+                    </div>
+                    <div class="col">
+                        {{ comment.content | raw }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}
