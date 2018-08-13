@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formSubscribe 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <h1>Inscrivez vous a l'Evenement !</h1>
+
+    {{ form_start(formSubscribe) }}
+
+    {{ form_row(formGalerie.title, {'attr' : {'placeholder' : "Titre"}}) }}
+    {{ form_row(formGalerie.category) }}
+    {{ form_row(formGalerie.content, {'attr' : {'placeholder' : "Contenu"}}) }}
+    {{ form_row(formGalerie.image, {'attr' : {'placeholder' : "URL de l'Image"}}) }}
+
+    <button type="submit" class="btn btn-success">
+        Confirmer l'envoi d'Inscription
+    </button>
+
+    {{ form_end(formSubscribe) }}
+
+{% endblock %}

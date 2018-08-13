@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% if is_granted('ROLE_ADMIN') %}
+    {% block body %}
+        <h1>Cet Elément a bien été Supprimé ! </h1>
+
+    {% endblock %}
+{% endif %}
